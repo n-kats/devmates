@@ -5,7 +5,7 @@ class Doron < Thor
   
   desc 'hello', 'say hello message'
   def hello
-    puts '‚¿‚Á‚·'
+    puts "ã¡ã£ã™"
   end
 end
 =begin
