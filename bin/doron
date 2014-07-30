@@ -29,6 +29,6 @@ __END__
 
 cmd:
   name: user_name
-  email: mail_address2
+  email: mail_address
 
 
