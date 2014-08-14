@@ -113,6 +113,12 @@ class User < Sprite
     super
     # 現在地
     @cd = nil
+    @items = []
+    @url
+  end
+
+  def equip(item)
+    @items << item unless @items.include? item
   end
 
   def join(target)
@@ -139,8 +145,8 @@ class Group < User
 end
 
 # ネットワーク部分
-class Air
-
+class Air < Item
+  @server
 end
 
 #----------------------------
@@ -179,5 +185,6 @@ class Task < Statement
   end
 end
 
-
+class Definition < Statement
+end
 
