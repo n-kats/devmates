@@ -1,8 +1,23 @@
-| 
-  HOGE
-  huge
 
-form action="/" method="POST"
-  p
-    | hoge
-    input type="text" name="name"
+pre id="chat"
+form
+  p 
+    | mesage
+    input id="msg" type="text"
+p 
+ | name
+ input id="user" type="text"
+coffee: 
+  es = new EventSource('/stream')
+  es.onmessage = (e)->
+    $('#chat').append(e.data + "\n")
+    return
+  
+  $("form").on('submit', (e)->
+    $.post('/', { msg: $('#user').val()+ ": " + $('#msg').val() })
+    $('#msg').val('')
+    $('#msg').focus()
+    e.preventDefault()
+  )
+ 
+ 
