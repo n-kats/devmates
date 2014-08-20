@@ -5,6 +5,9 @@ require 'slim'
 
 require 'cgi'
 
+require 'active_record'
+
+
 Slim::Engine.set_default_options pretty: true, sort_attrs: false
 
 # set envirment: :production
@@ -36,4 +39,19 @@ class String
   end
 end
 
+
+
+ActiveRecord::Base.establish_connenction(
+  adapter: "sqlite3",
+  database: "./post.db"
+)
+
+# save chat-log as database
+# 
+class Post < ActiveRecord::Base
+  
+  def self.glance
+  
+  end
+end
 
